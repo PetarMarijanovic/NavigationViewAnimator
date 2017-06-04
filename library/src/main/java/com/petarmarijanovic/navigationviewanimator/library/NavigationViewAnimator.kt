@@ -20,46 +20,40 @@ class NavigationViewAnimator @JvmOverloads constructor(context: Context,
   
   @MainThread
   fun showView(view: View, animationDirection: Config.AnimationDirection = NOTHING) {
-    showView(Config(view, animationDirection))
+    if (currentChild() !== view) showView(Config(view, animationDirection))
   }
   
   private fun showView(config: Config) {
     if (isAnimationRunning) {
+      // Some animation is already in progress, so add this one to queue
       queue.add(config)
       return
     }
     
-    val view = config.view
-    if (currentChild() === view) return
+    if (childCount == 0) addView(config.view) // Base (first) view, just add without animation
+    else animateView(config)
+  }
+  
+  private fun animateView(config: Config) {
+    addView(config.view, config.newViewIndex())
     
-    if (childCount == 0) {
-      addView(view)
-      return
-    }
-    
-    addView(view, config.newViewIndex())
-    
-    val animation = AnimationUtils.loadAnimation(context, config.animationDirection.inAnimRes())
+    val animation = AnimationUtils.loadAnimation(context, config.animationDirection.inAnimRes)
     animation.setAnimationListener(inAnimationListener(config.oldViewIndex()))
     inAnimation = animation
-    setOutAnimation(context, config.animationDirection.outAnimRes())
+    setOutAnimation(context, config.animationDirection.outAnimRes)
     
-    var i = 0
-    while (i < childCount) {
-      if (getChildAt(i) === view) {
+    for (i in 0..childCount) {
+      if (getChildAt(i) === config.view) {
         isAnimationRunning = true
         displayedChild = i
         return
       }
-      i++
     }
     
-    throw IllegalArgumentException("No view " + view.toString())
+    throw IllegalArgumentException("No view " + config.view.toString())
   }
   
-  fun currentChild(): View? {
-    return getChildAt(displayedChild)
-  }
+  fun currentChild(): View? = getChildAt(displayedChild)
   
   private fun inAnimationListener(oldViewIndex: Int): Animation.AnimationListener =
       object : EmptyAnimationListener() {
