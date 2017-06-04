@@ -7,6 +7,7 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ViewAnimator
+import com.petarmarijanovic.navigationviewanimator.library.Config.AnimationDirection.NOTHING
 import java.util.*
 
 /** Created by petar on 03/06/2017. */
@@ -18,7 +19,11 @@ class NavigationViewAnimator @JvmOverloads constructor(context: Context,
   private val queue = LinkedList<Config>()
   
   @MainThread
-  fun showView(config: Config) {
+  fun showView(view: View, animationDirection: Config.AnimationDirection = NOTHING) {
+    showView(Config(view, animationDirection))
+  }
+  
+  private fun showView(config: Config) {
     if (isAnimationRunning) {
       queue.add(config)
       return
