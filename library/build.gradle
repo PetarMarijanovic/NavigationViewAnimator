@@ -2,27 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'navigation-view-animator'
-
-    publishedGroupId = 'com.petarmarijanovic'
-    libraryName = 'NavigationViewAnimator'
-    artifact = 'navigation-view-animator'
-
-    libraryDescription = 'Navigation animation helper'
-
-    siteUrl = 'https://github.com/PetarMarijanovic/NavigationViewAnimator'
-    gitUrl = 'https://github.com/PetarMarijanovic/NavigationViewAnimator.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'petarmarijanovic'
-    developerName = 'Petar Marijanovic'
-    developerEmail = 'petar.marijanovic@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    PUBLISH_GROUP_ID = 'com.petarmarijanovic'
+    PUBLISH_ARTIFACT_ID = 'navigation-view-animator'
+    PUBLISH_VERSION = '1.1.0'
 }
 
 android {
@@ -59,15 +41,5 @@ repositories {
     mavenCentral()
 }
 
-// TODO: Don't depend on this, create own tasks
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-
-task uploadToBintray {
-
-    group 'Publishing'
-    description 'Genrates pom.xml file and uploads Library module to Bintray'
-
-    dependsOn 'install'
-    dependsOn 'bintrayUpload'
-}
+// ./gradlew clean build generateRelease
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'

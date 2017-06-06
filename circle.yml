@@ -2,10 +2,6 @@ machine:
   java:
     version: openjdk8
 
-checkout:
-  post:
-    - cp local.properties.ci local.properties
-
 dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter "android-25"

@@ -1,4 +1,0 @@
-## This file is here so I can build with CircleCI since it needs some stuff from local.properties
-# Property values are fake
-bintray.user=FAKE_BINTRAY_USER
-bintray.apikey=FAKE_BINTRAY_API_KEY
