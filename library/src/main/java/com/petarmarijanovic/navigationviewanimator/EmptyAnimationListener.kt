@@ -1,4 +1,4 @@
-package com.petarmarijanovic.navigationviewanimator.library
+package com.petarmarijanovic.navigationviewanimator
 
 import android.view.animation.Animation
 

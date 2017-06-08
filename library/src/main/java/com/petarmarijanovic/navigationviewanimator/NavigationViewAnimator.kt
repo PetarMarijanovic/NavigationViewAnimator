@@ -1,4 +1,4 @@
-package com.petarmarijanovic.navigationviewanimator.library
+package com.petarmarijanovic.navigationviewanimator
 
 import android.content.Context
 import android.support.annotation.MainThread
@@ -7,7 +7,8 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ViewAnimator
-import com.petarmarijanovic.navigationviewanimator.library.Config.AnimationDirection.NOTHING
+import com.petarmarijanovic.navigationviewanimator.Config.AnimationDirection
+import com.petarmarijanovic.navigationviewanimator.Config.AnimationDirection.NOTHING
 import java.util.*
 
 /** Created by petar on 03/06/2017. */
@@ -19,7 +20,7 @@ class NavigationViewAnimator @JvmOverloads constructor(context: Context,
   private val queue = LinkedList<Config>()
   
   @MainThread
-  fun showView(view: View, animationDirection: Config.AnimationDirection = NOTHING) {
+  fun showView(view: View, animationDirection: AnimationDirection = NOTHING) {
     if (currentChild() !== view) showView(Config(view, animationDirection))
   }
   

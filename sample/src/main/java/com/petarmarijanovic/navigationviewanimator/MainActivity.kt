@@ -2,8 +2,7 @@ package com.petarmarijanovic.navigationviewanimator
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.petarmarijanovic.navigationviewanimator.library.Config.AnimationDirection.*
-import com.petarmarijanovic.navigationviewanimator.library.NavigationViewAnimator
+import com.petarmarijanovic.navigationviewanimator.Config.AnimationDirection.*
 import kotlinx.android.synthetic.main.view_first.*
 import kotlinx.android.synthetic.main.view_second.view.*
 
@@ -17,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     val first = layoutInflater.inflate(R.layout.view_first, null)
     val second = layoutInflater.inflate(R.layout.view_second, null)
     
-    animator.showView(first, NOTHING)
+    animator.showView(first)
     
     from_right.setOnClickListener {
       animator.showView(second, IN_RIGHT_OUT_LEFT)
