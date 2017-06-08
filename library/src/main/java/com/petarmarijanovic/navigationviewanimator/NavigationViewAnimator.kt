@@ -7,8 +7,7 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ViewAnimator
-import com.petarmarijanovic.navigationviewanimator.Config.AnimationDirection
-import com.petarmarijanovic.navigationviewanimator.Config.AnimationDirection.NOTHING
+import com.petarmarijanovic.navigationviewanimator.AnimationDirection.NOTHING
 import java.util.*
 
 /** Created by petar on 03/06/2017. */

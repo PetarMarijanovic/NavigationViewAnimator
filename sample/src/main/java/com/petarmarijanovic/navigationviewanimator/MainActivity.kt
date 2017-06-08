@@ -2,7 +2,7 @@ package com.petarmarijanovic.navigationviewanimator
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.petarmarijanovic.navigationviewanimator.Config.AnimationDirection.*
+import com.petarmarijanovic.navigationviewanimator.AnimationDirection.*
 import kotlinx.android.synthetic.main.view_first.*
 import kotlinx.android.synthetic.main.view_second.view.*
 

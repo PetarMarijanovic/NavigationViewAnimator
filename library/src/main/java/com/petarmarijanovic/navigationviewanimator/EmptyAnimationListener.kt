@@ -2,8 +2,7 @@ package com.petarmarijanovic.navigationviewanimator
 
 import android.view.animation.Animation
 
-/** Created by petar on 03/06/2017.
- * Use this if you don't want to override all AnimationListener methods. */
+/** Created by petar on 03/06/2017. */
 open class EmptyAnimationListener : Animation.AnimationListener {
   override fun onAnimationStart(animation: Animation) {}
   
