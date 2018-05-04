@@ -16,7 +16,7 @@ repositories {
 }
     
 dependencies {
-    compile 'com.petarmarijanovic:navigation-view-animator:1.1.2'
+    compile 'com.petarmarijanovic:navigation-view-animator:1.2.0'
 }
 ```
 
@@ -25,7 +25,7 @@ dependencies {
 <dependency>
   <groupId>com.petarmarijanovic</groupId>
   <artifactId>navigation-view-animator</artifactId>
-  <version>1.1.2</version>
+  <version>1.2.0</version>
   <type>pom</type>
 </dependency>
 ```
